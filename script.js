@@ -180,19 +180,37 @@ function highlightHighestScorer() {
         const firstColumn = row.querySelector('td:first-child');
         firstColumn.innerHTML = '';
     });
+	
+	if (highestScore !== 0) 
+	{
+		// Highlight the highest scorer(s)
+		rows.forEach((row) => {
+			const score = parseInt(row.querySelector('td:nth-child(3)').textContent);
+			const highest = parseInt(row.querySelector('td:nth-child(4)').textContent);
 
-    // Highlight the highest scorer(s)
-    rows.forEach((row) => {
-        const score = parseInt(row.querySelector('td:nth-child(3)').textContent);
-        const highest = parseInt(row.querySelector('td:nth-child(4)').textContent);
+			if (score === highestScore && highest === highestHighestScore) {
+				const firstColumn = row.querySelector('td:first-child');
+				const animatedDot = document.createElement('div');
+				animatedDot.className = 'animated-dot';
+				firstColumn.appendChild(animatedDot);
+			}
+		});
+	}
+	else if(highestHighestScore !== 0) 
+	{
+		// Highlight the highest scorer(s)
+		rows.forEach((row) => {
+			const score = parseInt(row.querySelector('td:nth-child(3)').textContent);
+			const highest = parseInt(row.querySelector('td:nth-child(4)').textContent);
 
-        if (score === highestScore && highest === highestHighestScore) {
-            const firstColumn = row.querySelector('td:first-child');
-            const animatedDot = document.createElement('div');
-            animatedDot.className = 'animated-dot';
-            firstColumn.appendChild(animatedDot);
-        }
-    });
+			if (score === highestScore && highest === highestHighestScore) {
+				const firstColumn = row.querySelector('td:first-child');
+				const animatedDot = document.createElement('div');
+				animatedDot.className = 'animated-dot';
+				firstColumn.appendChild(animatedDot);
+			}
+		});
+	}
 }
 
 function EndGame() {
