@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth26: Billy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scoreboard">
+        <h1 class="super-fancy-heading">Earth26: Billy</h1>
+		<hr class="separator">
+        <button id="startGame" class="scoreboard-button scoreboard-margin">Start New Game</button>
+		<hr class="separator">
+		<div class="gameArea">
+			<p><label id="ballTypeLabel"></label></p>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Player</th>
+						<th>Score</th>
+						<th>Highest Score</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<div class="player-action">
+				<select id="actionDropdown" disabled>
+					<option value="Miss">Miss</option>
+					<optgroup label="Touch">
+						<option value="Touch Stripe">Touch Stripe</option>
+						<option value="Touch Solid">Touch Solid</option>
+						<option value="Touch Black">Touch Black</option>
+					</optgroup>
+					<optgroup label="Sink">
+						<option value="Sink Stripe">Sink Stripe</option>
+						<option value="Sink Solid">Sink Solid</option>
+						<option value="Sink White">Sink White</option>
+						<option value="Sink Black">Sink Black</option>
+						<option value="Sink White & Black">Sink White & Black</option>
+					</optgroup>
+				</select>
+				<button id="submitAction" class="scoreboard-button scoreboard-margin" disabled>Submit Action</button>
+			</div>
+		</div>
+    </div>
+    <div id="playerAddModal" class="modal">
+        <div class="modal-content">
+            <span id="closePlayerAddModal" class="close">&times;</span>
+			
+            <h2>Add Players | <span id="totalPlayers">0</span>/11</h2>
+            <p>Enter the names of the players (min 3, max 11):</p>
+            <input type="text" id="playerInput" placeholder="Enter player name">
+            <button id="addPlayer" class="scoreboard-button scoreboard-margin">Add Player</button>
+			<button id="startGameModal" class="scoreboard-button scoreboard-margin" disabled>Start Game</button>
+            <div class="player-list">
+                <h3>Player List:</h3>
+                <div id="playerList"></div>
+            </div>
+            
+        </div>
+    </div>
+	<!-- Winner Modal -->
+	<div id="winnerModal" class="modal">
+		<div class="modal-content">
+			<span id="closeWinnerModal" class="close">&times;</span>
+
+			<h2>CONGRATULATIONS!</h2>
+			<div id="winnersList"></div>
+		</div>
+	</div>
+    <script src="script.js"></script>
+</body>
+</html>

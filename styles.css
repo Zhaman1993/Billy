@@ -1,0 +1,372 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Set the body's height to 100% of the viewport height */
+    margin: 0; /* Remove any default margin */
+    background-color: black;
+}
+
+/* Style the scoreboard container */
+.scoreboard {
+    background-color: #2E7D32;
+    padding: 20px;
+	margin: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	 display: flex;
+    align-items: center;
+	width: 800px;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Style the scoreboard button */
+.scoreboard-button {
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the scoreboard button on hover */
+.scoreboard-button:hover {
+    background-color: #388E3C;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the disabled "Submit Action" button */
+.scoreboard-button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+    color: white;
+}
+
+/* Style the super fancy heading */
+.super-fancy-heading {
+     font-size: 48px;
+    color: #FFD700; /* Gold color */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: bounce 2s infinite; /* Apply bounce and rotate animations */
+    transition: color 0.5s ease-in-out; /* Add a color transition on hover */
+}
+
+/* Add a subtle animation on hover */
+.super-fancy-heading:hover {
+    color: #2E7D32; /* Green color matching your theme */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Change text color on hover */
+.super-fancy-heading:hover {
+    color: #FFD700; /* Change to gold color on hover */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Enhance the text shadow on hover */
+}
+
+
+
+/* Style the select dropdown */
+#actionDropdown {
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    margin-right: 10px;
+}
+
+/* Style the current player's row */
+tbody tr.current-player {
+    background-color: gold !important; /* Gold background for the current player's row */
+    font-weight: bold; /* Bold text for the current player */
+    color: #2E7D32; /* Green text color for the current player */
+    font-size: 24px; /* Larger font size for the current player */
+    transform: scale(1.02);
+}
+
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 2px solid #2E7D32; /* Add a border to the table */
+	text-align: center;
+}
+
+/* Set width for the first column (empty column) */
+td:nth-child(1),
+th:nth-child(1) {
+    width: 15%; /* Adjust the width as needed */
+}
+
+/* Set width for the Player column */
+td:nth-child(2),
+th:nth-child(2) {
+    width: 40%; /* Adjust the width as needed */
+	text-align: left;
+}
+
+/* Set width for the Score column */
+td:nth-child(3),
+th:nth-child(3) {
+    width: 30%; /* Adjust the width as needed */
+}
+
+/* Set width for the Highest Score column */
+td:nth-child(4),
+th:nth-child(4) {
+    width: 25%; /* Adjust the width as needed */
+}
+
+
+/* Style the table headers */
+thead th {
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px;
+    border-bottom: 2px solid #2E7D32; /* Add a border to the header row */
+}
+
+/* Style the table rows */
+tbody tr:nth-child(odd) {
+    background-color: #C8E6C9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #A5D6A7;
+}
+
+/* Style the table data cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a border to the bottom of each cell */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+/* Style the modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 500px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 200px; /* Limit the maximum height of the modal content */
+    overflow-y: auto; /* Enable vertical scrolling within the modal content */
+}
+
+.gameArea
+{
+	display: none;
+	width: 100%;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Style the select dropdown container */
+.player-action {
+	display: flex;
+    align-items: center;
+	justify-content: center;
+    margin-top: 10px;
+}
+
+/* Style the player list */
+.player-list {
+    margin-top: 20px;
+}
+
+.player-list h3 {
+    margin-bottom: 10px;
+}
+
+/* Style the ball type label */
+#ballTypeLabel {
+    font-size: 24px; /* A bit larger for emphasis */
+    margin-right: 10px;
+    color: #FFD700; /* Gold text color */
+    text-transform: uppercase; /* Uppercase text for a bold look */
+    letter-spacing: 1px; /* Slightly spaced-out letters */
+    font-weight: bold; /* Extra emphasis */
+}
+
+.separator {
+	width: 80%;
+    border: none; /* Remove the default border */
+    border-top: 2px solid #FFD700; /* Add a custom border on top for styling */
+    margin: 20px 0; /* Adjust margin as needed for spacing */
+}
+
+/* Add styles for the animated dot */
+.animated-dot {
+    width: 20px; /* Adjust the size as needed */
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    animation: bounceBall 1s infinite alternate; /* Animate the dot */
+}
+
+/* Style the inner white circle */
+.animated-dot::before {
+    content: '';
+    width: 14px; /* Adjust the size as needed */
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style the black "8" inside the dot */
+.animated-dot::after {
+    content: '8';
+    color: black;
+    font-size: 10px; /* Adjust the size as needed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Define the animation for the dot */
+@keyframes bounceBall {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2); /* Adjust the scaling factor as needed */
+    }
+}
+
+/* Winner Modal Styles */
+#winnerModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Winner Modal Content */
+#winnerModal .modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 500px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Close Button for Winner Modal */
+#winnerModal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Winner List Styles */
+#winnersList {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Style the scrollbar for Winner Modal */
+#winnerModal::-webkit-scrollbar {
+    width: 10px;
+    background-color: #2E7D32;
+}
+
+/* Style the scrollbar thumb for Winner Modal */
+#winnerModal::-webkit-scrollbar-thumb {
+    background-color: #388E3C;
+    border-radius: 5px;
+}
+
+/* Style the scrollbar thumb on hover for Winner Modal */
+#winnerModal::-webkit-scrollbar-thumb:hover {
+    background-color: #4CAF50;
+}
+
+/* Style the scrollbar thumb when clicked or being dragged for Winner Modal */
+#winnerModal::-webkit-scrollbar-thumb:active {
+    background-color: #2E7D32;
+}
+
+
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  background-color: #2E7D32; /* Background color of the track */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #388E3C; /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+/* Style the scrollbar when hovered over */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4CAF50; /* Color of the thumb on hover */
+}
+
+/* Style the scrollbar track when clicked or being dragged */
+::-webkit-scrollbar-thumb:active {
+  background-color: #2E7D32; /* Color of the thumb when active */
+}
