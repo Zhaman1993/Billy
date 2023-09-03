@@ -151,6 +151,7 @@ addPlayerButton.addEventListener('click', addPlayer);
 // Event listener for "Start Game" button click in the modal
 startGameModalButton.addEventListener('click', () => {
     if (players.length >= 3 && players.length <= 11) {
+		ballType = "/";
         startNewGame();
         highlightPlayer(0); // Call this to highlight the first player's row
         updateBallTypeLabel(); // Initialize the ball type label
