@@ -193,7 +193,10 @@ td {
 .gameArea
 {
 	display: none;
-	width: 100%;
+	width: 80%;
+	padding: 20px;
+	margin: 20px;
+	border: 2px solid #FFD700;
 }
 
 /* Style the close button */
