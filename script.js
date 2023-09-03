@@ -83,6 +83,8 @@ function renderPlayers() {
 // Function to start a new game
 function startNewGame() {
 	isGameOver = false;
+	stripesLeft = 7;
+	solidsLeft = 7;
 	submitActionButton.removeAttribute('disabled');
 	actionDropdown.removeAttribute('disabled');
     clearTable();
